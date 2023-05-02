@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class UserMapper{
++getUserByUsername(input :String): User
++getAdminUserInfo(): List<User>
++getAdminUserInfoByPage(page: int,name: int):List<User>
++getUserByUsernamePassword(username: String,password: String) :User
++save(user:User) :int
++update(user:User) :int
++deleteByUsername(username:String) :int
+}
+
+class UserLoginServiceImpl{
+-userMapper: UserMapper
++userLogin(username:String,password:String) :User
+}
+
+class UserLoginService{
++userLogin(String,String):User
+}
+
+@enduml

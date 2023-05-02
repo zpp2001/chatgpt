@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.chatgpt.Mapper.ModuleMapper">
+    <resultMap id="ModuleBaseMap" type="com.example.chatgpt.Entity.Module">
+        <id column="id" property="id"/>
+        <result column="project_id" property="project_id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="classFile" property="classFile"/>
+        <result column="sequenceFile" property="sequenceFile"/>
+        <result column="ifAI" property="ifAI"/>
+    </resultMap>
+<insert id="addModule" parameterType="com.example.chatgpt.Entity.Module">
+    insert into module values (#{id},#{project_id},#{classFile},#{name},#{description},#{sequenceFile},#{ifAI});
+</insert>
+    <select id="getAllMoudles" resultMap="ModuleBaseMap">
+        select * from module where project_id=#{project_id};
+    </select>
+    <delete id="deleteModulesByID">
+        delete from module where id=#{id};
+    </delete>
+</mapper>

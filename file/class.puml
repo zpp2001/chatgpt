@@ -1,0 +1,15 @@
+@startuml
+class User {
+  -username: String
+  -password: String
+  +User(username: String, password: String)
+  +getUsername(): String
+  +getPassword(): String
+}
+
+class Authentication {
+  +register(username: String, password: String): boolean
+  +login(username: String, password: String): boolean
+}
+User -> Authentication : uses
+@enduml
